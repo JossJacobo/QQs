@@ -1,4 +1,4 @@
-package joss.jacobo.quizapptestproject;
+package joss.jacobo.quizapptestproject.Quiz;
 
 import android.content.Context;
 import android.util.Log;

@@ -1,4 +1,4 @@
-package joss.jacobo.quizapptestproject;
+package joss.jacobo.quizapptestproject.Quiz;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -6,6 +6,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -13,9 +15,14 @@ import android.view.View;
 import com.google.gson.Gson;
 import com.squareup.okhttp.OkHttpClient;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
 
+import joss.jacobo.quizapptestproject.R;
 import joss.jacobo.quizapptestproject.dagger.Dagger;
+import joss.jacobo.quizapptestproject.models.Question;
 import joss.jacobo.quizapptestproject.models.Quiz;
 
 public class MainActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Quiz> {
@@ -28,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     OkHttpClient client;
     @Inject
     Gson gson;
+
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
             }
         });
 
+        recyclerView = (RecyclerView) findViewById(R.id.list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new QuizAdapter());
+
         getSupportLoaderManager().initLoader(0, null, this);
     }
 
@@ -57,9 +70,15 @@ public class MainActivity extends AppCompatActivity implements LoaderManager.Loa
     }
 
     @Override
-    public void onLoadFinished(Loader<Quiz> loader, Quiz data) {
-        if (data != null) {
-            Log.e(TAG, data.toString());
+    public void onLoadFinished(Loader<Quiz> loader, Quiz quiz) {
+        if (quiz != null) {
+            List<QuizItem> items = new ArrayList<>();
+            items.add(quiz);
+            for (Question question : quiz.questions) {
+                items.add(question);
+            }
+
+            ((QuizAdapter) recyclerView.getAdapter()).setItems(items);
         }
     }
 

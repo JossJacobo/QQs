@@ -4,7 +4,9 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Question {
+import joss.jacobo.quizapptestproject.Quiz.QuizItem;
+
+public class Question implements QuizItem {
 
     public String question;
 
