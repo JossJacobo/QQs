@@ -1,4 +1,4 @@
-package joss.jacobo.quizapptestproject.Quiz;
+package joss.jacobo.quizapptestproject.quiz;
 
 public interface QuizItem {
 }

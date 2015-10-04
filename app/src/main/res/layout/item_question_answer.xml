@@ -5,30 +5,27 @@
     <data>
 
         <variable
-            name="question"
-            type="joss.jacobo.quizapptestproject.models.Question" />
+            name="choice"
+            type="joss.jacobo.quizapptestproject.models.MultipleChoiceAnswer" />
 
     </data>
-
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_margin="8dp"
         android:clickable="true"
         android:focusable="true"
-        android:background="@{!question.answered ? @color/white : (question.correct ? @color/green : @color/red)}"
         android:foreground="@drawable/list_selector"
-        android:onClick="@{question.onClick}">
+        android:onClick="@{choice.onClick}">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="@{question.question}"
-            android:textColor="@{question.answered ? @color/white : @color/black}"
-            tools:text="What color is the dress?"/>
+            android:text="@{choice.answer}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            tools:text="What color is the dress?" />
 
     </android.support.v7.widget.CardView>
 

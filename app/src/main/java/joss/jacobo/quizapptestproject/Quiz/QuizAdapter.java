@@ -1,4 +1,4 @@
-package joss.jacobo.quizapptestproject.Quiz;
+package joss.jacobo.quizapptestproject.quiz;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -16,7 +16,7 @@ import joss.jacobo.quizapptestproject.models.Quiz;
 
 public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.ViewHolder> {
 
-    private List<QuizItem> items = new ArrayList<>();
+    public List<QuizItem> items = new ArrayList<>();
 
     public void setItems(List<QuizItem> items) {
         this.items.clear();

@@ -3,7 +3,7 @@ package joss.jacobo.quizapptestproject.dagger;
 import javax.inject.Singleton;
 
 import dagger.Component;
-import joss.jacobo.quizapptestproject.Quiz.MainActivity;
+import joss.jacobo.quizapptestproject.MainActivity;
 import joss.jacobo.quizapptestproject.MainApp;
 
 @Singleton
