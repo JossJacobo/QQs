@@ -18,7 +18,7 @@ public class Quiz extends BaseObservable implements QuizItem {
         return (title == null ? "" : title) + " Quiz!";
     }
 
-    private int getAnsweredCount(){
+    public int getAnsweredCount(){
         int count = 0;
         for (Question q : questions) {
             if (q.answered) {
