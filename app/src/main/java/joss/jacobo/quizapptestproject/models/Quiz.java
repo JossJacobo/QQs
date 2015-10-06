@@ -5,7 +5,6 @@ import android.databinding.Bindable;
 
 import java.util.List;
 
-import joss.jacobo.quizapptestproject.BR;
 import joss.jacobo.quizapptestproject.quiz.QuizItem;
 
 public class Quiz extends BaseObservable implements QuizItem {
